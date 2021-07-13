@@ -51,6 +51,7 @@ public class UserService implements com.e.dxy.service.UserService {
         return Response.success(user);
     }
 
+    // 用户删除
     public Response<UserVO> delete(Integer id) {
 
         UserDomain user = this.getIfPresent(id);
@@ -103,6 +104,7 @@ public class UserService implements com.e.dxy.service.UserService {
         return Response.success(res);
     }
 
+    // 用户列表
     public Response<UserVO> list() {
         List<UserDomain> userVOS = userRepository.findAll();
 
