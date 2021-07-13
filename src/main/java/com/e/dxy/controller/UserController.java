@@ -50,7 +50,7 @@ public class UserController {
     public Response delete(@RequestParam(name = "id", defaultValue = "") @NotNull(message = "id不能为空") @Min(value = 0, message = "id必须大于0") Integer id) {
 
         logger.info("删除成功id=" + id);
-        return Response.success(userService.detail(id));
+        return Response.success(userService.delete(id));
     }
 
 
