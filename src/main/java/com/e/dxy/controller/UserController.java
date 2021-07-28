@@ -29,7 +29,7 @@ public class UserController {
     // 新增
     @PostMapping("/add")
     @ApiOperation(value = "用户新增")
-    public Response<UserVO> add(@RequestBody @Validated UserVO userData) {
+    public Response add(@RequestBody @Validated UserVO userData) {
 
         logger.info("新增成功");
         return userService.add(userData);
@@ -38,7 +38,7 @@ public class UserController {
     // 修改
     @PostMapping("/update")
     @ApiOperation(value = "用户更新")
-    public Response<UserVO> update(@RequestBody @Validated UserVO userData) {
+    public Response update(@RequestBody @Validated UserVO userData) {
 
         logger.info("修改成功");
         return userService.update(userData);
@@ -57,10 +57,10 @@ public class UserController {
     // 列表
     @GetMapping("/list")
     @ApiOperation(value = "用户列表")
-    public Response<List<UserVO>> list() {
+    public Response list() {
 
         logger.info("获取列表成功");
-        return Response.success(userService.list());
+        return userService.list();
     }
 
     // 详情
