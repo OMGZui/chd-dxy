@@ -76,7 +76,7 @@ public class UserController {
         return Response.success(userService.detail(id));
     }
 
-    @PostMapping("/search")
+    @GetMapping("/search")
     public Response search(
             @RequestParam(name = "page", defaultValue = "1") Integer page,
             @RequestParam(name = "size", defaultValue = "10") Integer size,
