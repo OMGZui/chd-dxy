@@ -25,4 +25,13 @@ public class UserDomain {
     @Column(name = "create_time")
     private LocalDateTime createTime = LocalDateTime.now();
 
+    @Override
+    public String toString() {
+        return "UserDomain{" +
+                "id=" + id +
+                ", username=" + username +
+                ", password=" + password +
+                ", create_time=" + createTime +
+                "}";
+    }
 }
