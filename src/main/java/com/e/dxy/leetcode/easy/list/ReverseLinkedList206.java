@@ -6,7 +6,7 @@ import com.e.dxy.utils.SingleLinkListUtil;
 
 public class ReverseLinkedList206 {
 
-    public static ListNode reverseList(ListNode head) {
+    public static ListNode reverseList111(ListNode head) {
         ListNode pre = head, cur = null;
 
         while (pre != null) {
@@ -18,9 +18,24 @@ public class ReverseLinkedList206 {
         return cur;
     }
 
+    public static ListNode reverseList222(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+
+        ListNode last = reverseList222(head.next);
+        head.next.next = head;
+        head.next = null;
+
+        return last;
+    }
+
     public static void main(String[] args) {
         ListNode listNode = SingleLinkListUtil.createList(new int[]{1, 2, 3, 4, 5});
-        ListNode reverseList = reverseList(listNode);
-        PrintUtil.printSingleList(reverseList);
+//        ListNode reverseList111 = reverseList111(listNode);
+//        PrintUtil.printSingleList(reverseList111);
+
+        ListNode reverseList222 = reverseList222(listNode);
+        PrintUtil.printSingleList(reverseList222);
     }
 }
