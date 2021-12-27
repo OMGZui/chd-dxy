@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 public class TreeTest {
 
     @Test
-    public void binaryTree(){
+    public void binaryTree() {
         TreeNode root = new TreeNode(1);
         TreeNode B = new TreeNode(3);
         TreeNode C = new TreeNode(6);
@@ -36,17 +36,12 @@ public class TreeTest {
     }
 
     // 左 中 右
-    public void inOrder(TreeNode node){
-        if (node != null) {
-            if (node.left != null) {
-                inOrder(node.left);
-            }
-            System.out.printf("%s->", node.val);
-            if (node.right != null) {
-                inOrder(node.right);
-            }
+    public void inOrder(TreeNode node) {
+        if (node == null) {
+            return;
         }
-
-        return;
+        inOrder(node.left);
+        System.out.printf("%s->", node.val);
+        inOrder(node.right);
     }
 }
