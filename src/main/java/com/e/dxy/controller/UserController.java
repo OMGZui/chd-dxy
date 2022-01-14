@@ -1,6 +1,6 @@
 package com.e.dxy.controller;
 
-import com.e.dxy.service.open.UserService;
+import com.e.dxy.service.impl.UserServiceImpl;
 import com.e.dxy.utils.Response;
 import com.e.dxy.vo.UserVO;
 import io.swagger.annotations.Api;
@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
-import java.util.*;
 
 @RestController
 @RequestMapping("user")
@@ -24,7 +23,7 @@ public class UserController {
     private Logger logger = LoggerFactory.getLogger(getClass());
 
     @Autowired
-    private UserService userService;
+    private UserServiceImpl userService;
 
     // 新增
     @PostMapping("/add")

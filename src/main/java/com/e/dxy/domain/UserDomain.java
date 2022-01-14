@@ -5,6 +5,7 @@ import lombok.Setter;
 import lombok.experimental.FieldNameConstants;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Entity
@@ -12,7 +13,7 @@ import java.time.LocalDateTime;
 @Setter
 @FieldNameConstants
 @Table(name = "users")
-public class UserDomain {
+public class UserDomain implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "JDBC")

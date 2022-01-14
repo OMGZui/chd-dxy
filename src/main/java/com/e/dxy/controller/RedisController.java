@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.*;
 
 @RestController
-@RequestMapping("redis")
+@RequestMapping("api/redis")
 @SuppressWarnings("unchecked")
 @Api(tags = "-o- redis")
 public class RedisController {

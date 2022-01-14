@@ -25,8 +25,7 @@ public class SessionController {
     public Response<Map<String,Object>> getAll(HttpSession session) {
         Map<String, Object> result = new HashMap<>();
 
-        for (Enumeration<String> enumeration = session.getAttributeNames();
-             enumeration.hasMoreElements();) {
+        for (Enumeration<String> enumeration = session.getAttributeNames(); enumeration.hasMoreElements();) {
             String key = enumeration.nextElement();
             Object value = session.getAttribute(key);
             result.put(key, value);

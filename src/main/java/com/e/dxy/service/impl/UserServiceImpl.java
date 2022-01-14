@@ -1,7 +1,8 @@
-package com.e.dxy.service.open;
+package com.e.dxy.service.impl;
 
 import com.e.dxy.dao.UserRepository;
 import com.e.dxy.domain.UserDomain;
+import com.e.dxy.service.UserService;
 import com.e.dxy.utils.Response;
 import com.e.dxy.vo.UserVO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,7 @@ import java.util.stream.Collectors;
 
 @Service
 @SuppressWarnings("unchecked")
-public class UserService implements com.e.dxy.service.UserService {
+public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserRepository userRepository;

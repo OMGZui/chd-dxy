@@ -2,14 +2,14 @@ package com.e.dxy.service;
 
 import com.e.dxy.DxyApplicationTests;
 import com.e.dxy.domain.UserDomain;
-import com.e.dxy.service.open.UserService;
+import com.e.dxy.service.impl.UserServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 class UserTest extends DxyApplicationTests {
 
     @Autowired
-    private UserService userService;
+    private UserServiceImpl userService;
 
     @Test
     void testDetail(){
