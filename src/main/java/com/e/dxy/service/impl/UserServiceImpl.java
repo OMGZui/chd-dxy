@@ -2,9 +2,11 @@ package com.e.dxy.service.impl;
 
 import com.e.dxy.dao.UserRepository;
 import com.e.dxy.domain.UserDomain;
+import com.e.dxy.event.message.UserMessage;
 import com.e.dxy.service.UserService;
 import com.e.dxy.utils.Response;
 import com.e.dxy.vo.UserVO;
+import org.apache.rocketmq.spring.core.RocketMQTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -21,6 +23,9 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private RocketMQTemplate rocketMQTemplate;
 
     @Override
     public UserDomain getIfPresent(Integer id){
@@ -101,7 +106,10 @@ public class UserServiceImpl implements UserService {
                 .username(userVOS.getUsername())
                 .createTime(userVOS.getCreateTime())
                 .build();
+        // 发送消息
+        UserMessage userMessage = UserMessage.builder().id(userVOS.getId()).build();
 
+        rocketMQTemplate.syncSend(UserMessage.TOPIC, userMessage);
         return Response.success(res);
     }
 
@@ -116,6 +124,8 @@ public class UserServiceImpl implements UserService {
                 .username(o.getUsername())
                 .build())
                 .collect(Collectors.toList());
+
+        // 消费消息
 
         return Response.success(res);
     }
