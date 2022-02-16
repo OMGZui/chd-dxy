@@ -8,6 +8,7 @@ import com.e.dxy.utils.Response;
 import com.e.dxy.vo.UserVO;
 import org.apache.rocketmq.spring.core.RocketMQTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -26,6 +27,9 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private RocketMQTemplate rocketMQTemplate;
+
+    @Value("${user.age}")
+    private Integer age;
 
     @Override
     public UserDomain getIfPresent(Integer id){
@@ -101,12 +105,12 @@ public class UserServiceImpl implements UserService {
         }
 
         UserVO res = UserVO.builder()
-                .id(userVOS.getId())
+                .id(userVOS.getId() + age)
                 .password(userVOS.getPassword())
                 .username(userVOS.getUsername())
                 .createTime(userVOS.getCreateTime())
                 .build();
-        // 发送消息
+        // 发送消
         UserMessage userMessage = UserMessage.builder().id(userVOS.getId()).build();
 
         rocketMQTemplate.syncSend(UserMessage.TOPIC, userMessage);
