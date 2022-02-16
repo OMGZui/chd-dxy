@@ -3,6 +3,7 @@ package com.e.dxy.service.impl;
 import com.e.dxy.dao.UserRepository;
 import com.e.dxy.domain.UserDomain;
 import com.e.dxy.event.message.UserMessage;
+import com.e.dxy.properties.UserProperties;
 import com.e.dxy.service.UserService;
 import com.e.dxy.utils.Response;
 import com.e.dxy.vo.UserVO;
@@ -27,6 +28,9 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private RocketMQTemplate rocketMQTemplate;
+
+    @Autowired
+    private UserProperties userProperties;
 
     @Value("${user.age}")
     private Integer age;
@@ -105,7 +109,7 @@ public class UserServiceImpl implements UserService {
         }
 
         UserVO res = UserVO.builder()
-                .id(userVOS.getId() + age)
+                .id(userVOS.getId() + age + userProperties.getTime())
                 .password(userVOS.getPassword())
                 .username(userVOS.getUsername())
                 .createTime(userVOS.getCreateTime())
