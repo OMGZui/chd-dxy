@@ -3,7 +3,6 @@ package com.e.dxy.leetcode;
 import com.e.dxy.leetcode.easy.sort.Sort01;
 import com.e.dxy.utils.PrintUtil;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * <p></p>
