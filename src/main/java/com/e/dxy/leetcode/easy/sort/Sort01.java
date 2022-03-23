@@ -10,7 +10,7 @@ package com.e.dxy.leetcode.easy.sort;
 public class Sort01 {
     // O(n^2)
 
-    // 冒泡排序
+    // 冒泡排序 两两比较，每一趟都冒出一个数
     public void bubbleSort(int[] arr){
         int n = arr.length;
 
@@ -18,8 +18,8 @@ public class Sort01 {
             return;
         }
 
-        for (int i = 0; i < n - 1; i++) {
-            for (int j = 0; j < n - 1 - i; j++) {
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n - i - 1; j++) {
                 if (arr[j] > arr[j+1]) {
                     int t = arr[j];
                     arr[j] = arr[j+1];
