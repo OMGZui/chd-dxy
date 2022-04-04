@@ -7,6 +7,7 @@ import lombok.experimental.FieldNameConstants;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 @Entity
 @Getter
@@ -24,7 +25,7 @@ public class UserDomain implements Serializable {
     private String password = "123456";
 
     @Column(name = "create_time")
-    private LocalDateTime createTime = LocalDateTime.now();
+    private LocalTime createTime = LocalTime.now();
 
     @Override
     public String toString() {

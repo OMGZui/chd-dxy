@@ -1,4 +1,4 @@
-package com.e.dxy.domain;
+package com.e.dxy.domain.demo;
 
 public class Dog extends Animal {
     // 定义数据

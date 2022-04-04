@@ -1,4 +1,4 @@
-package com.e.dxy.domain;
+package com.e.dxy.domain.demo;
 
 /**
  * <p></p>

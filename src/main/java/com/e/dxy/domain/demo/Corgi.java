@@ -1,6 +1,8 @@
-package com.e.dxy.domain;
+package com.e.dxy.domain.demo;
 
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * <p></p>
@@ -73,13 +75,15 @@ public class Corgi extends Dog implements DogInterface
 
         System.out.println(CorgiGG.getCorgiGG());
 
+        Logger logger = Logger.getLogger("com.e.dxy.domain");
+
         try {
             int x = corgi.check();
             System.out.println(x);
         } catch (Exception e) {
             System.out.println(e);
+            logger.log(Level.WARNING, "error", e);
         }
-
 //        (String s1, String s2) -> {
 //        (String s1, String s2) -> {
 //            return s1.length() - s2.length();
