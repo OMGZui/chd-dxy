@@ -1,11 +1,9 @@
 package com.e.dxy.service;
 
-import com.e.dxy.base.User;
 import com.e.dxy.domain.UserDomain;
 import org.junit.jupiter.api.Test;
 
 import java.sql.*;
-import java.util.Map;
 
 /**
  * <p></p>

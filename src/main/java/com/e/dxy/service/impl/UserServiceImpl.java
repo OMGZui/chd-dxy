@@ -36,7 +36,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDomain getIfPresent(Integer id){
-        return userRepository.findById(id).orElse(new UserDomain());
+        return userRepository.findById(id).orElse(null);
     }
 
     // 用户新增
