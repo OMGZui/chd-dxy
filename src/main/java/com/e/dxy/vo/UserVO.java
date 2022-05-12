@@ -7,6 +7,7 @@ import lombok.Setter;
 
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.util.Date;
 
 @Getter
 @Setter
@@ -23,6 +24,6 @@ public class UserVO {
     private String password;
 
     @ApiModelProperty(value = "创建时间")
-    private LocalTime createTime;
+    private Date createTime;
 
 }

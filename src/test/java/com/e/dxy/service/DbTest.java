@@ -24,7 +24,7 @@ public class DbTest {
                 userDomain.setId(resultSet.getInt("id"));
                 userDomain.setUsername(resultSet.getString("username"));
                 userDomain.setPassword(resultSet.getString("password"));
-                userDomain.setCreateTime(resultSet.getTime("create_time").toLocalTime());
+                userDomain.setCreateTime(resultSet.getTime("create_time"));
                 System.out.println(userDomain.toString());
             }
         } catch (SQLException e) {

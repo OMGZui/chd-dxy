@@ -1,9 +1,5 @@
 package com.e.dxy.domain.demo;
 
-import lombok.Getter;
-import lombok.Setter;
-
-import javax.persistence.Entity;
 import java.io.Serializable;
 
 /**
@@ -12,9 +8,6 @@ import java.io.Serializable;
  * @author omgzui
  * @date 5/5/22 9:56 PM
  */
-@Getter
-@Setter
-@Entity
 public class Effective01 implements Serializable {
 
     private String name;

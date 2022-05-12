@@ -8,6 +8,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.util.Date;
 
 @Entity
 @Getter
@@ -25,7 +26,7 @@ public class UserDomain implements Serializable {
     private String password = "123456";
 
     @Column(name = "create_time")
-    private LocalTime createTime = LocalTime.now();
+    private Date createTime = new Date();
 
     @Override
     public String toString() {

@@ -5,6 +5,7 @@ import com.e.dxy.utils.Response;
 import com.e.dxy.vo.UserVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -76,6 +77,7 @@ public class UserController {
     }
 
     @GetMapping("/search")
+    @ApiOperation(value = "搜索")
     public Response search(
             @RequestParam(name = "page", defaultValue = "1") Integer page,
             @RequestParam(name = "size", defaultValue = "10") Integer size,
