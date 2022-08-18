@@ -15,7 +15,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import java.sql.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -111,7 +110,7 @@ public class UserServiceImpl implements UserService {
         UserVO res = UserVO.builder()
                 .id(userVOS.getId() + age + time)
                 .password(userVOS.getPassword())
-                .username(userVOS.getUsername())
+                .username(userVOS.getUsername() + "omgzui")
                 .createTime(userVOS.getCreateTime())
                 .build();
         // 发送消
