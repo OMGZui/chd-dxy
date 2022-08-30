@@ -28,6 +28,8 @@ public class UserDomain implements Serializable {
     @Column(name = "create_time")
     private Date createTime = new Date();
 
+    private Integer deleted;
+
     @Override
     public String toString() {
         return "UserDomain{" +
@@ -35,6 +37,7 @@ public class UserDomain implements Serializable {
                 ", username=" + username +
                 ", password=" + password +
                 ", create_time=" + createTime +
+                ", deleted=" + deleted +
                 "}";
     }
 }

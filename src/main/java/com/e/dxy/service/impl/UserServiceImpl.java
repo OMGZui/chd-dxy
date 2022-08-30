@@ -14,7 +14,9 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -135,5 +137,23 @@ public class UserServiceImpl implements UserService {
         // 消费消息
 
         return Response.success(res);
+    }
+
+    @Transactional
+    public Response<Void> updateMedium(UserVO userVO) throws Exception {
+
+        UserDomain userDomain = this.getIfPresent(userVO.getId());
+        userDomain.setDeleted(userVO.getDeleted());
+        userDomain.setPassword(userVO.getPassword());
+        userDomain.setUsername(userVO.getUsername());
+        userDomain.setCreateTime(new Date());
+        UserDomain saved = userRepository.save(userDomain);
+        try {
+            int a = 2 / 0;
+        } catch (Exception e) {
+            throw new Exception();
+        }
+
+        return Response.success();
     }
 }
