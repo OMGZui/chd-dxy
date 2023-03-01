@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 @RestController
 @RequestMapping("user")
@@ -86,5 +88,12 @@ public class UserController {
 
         logger.info("搜索成功");
         return userService.searchByUsername(page, size, username);
+    }
+
+    public static void main(String[] args) {
+        Random random = new Random();
+        System.out.println(random.nextInt());
+        System.out.println(random.nextInt(10));
+        ThreadLocalRandom.current();
     }
 }
